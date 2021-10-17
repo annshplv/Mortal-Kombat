@@ -48,10 +48,10 @@ function createPlayer(playerClass, playerName, playerHp, playerModel) {
     $progressbar.appendChild($life);
     $progressbar.appendChild($name);
     $character.appendChild($img);
-
-    const $arenas = document.querySelector('.arenas')
-    $arenas.appendChild($player1)
 };
+
+const $arenas = document.querySelector('.arenas')
+    $arenas.appendChild($player1)
 
 // Task #2-3
 
