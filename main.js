@@ -3,19 +3,44 @@ const player1 = {
     name: 'Kitana',
     hp: 100,
     img: 'http://reactmarathon-api.herokuapp.com/assets/kitana.gif',
+<<<<<<< Updated upstream
     weapon: ['shotgun', 'grenade', 'knife'],
     attack: function () {
         console.log(player1.name + ' '+ 'fight...')
     }
 };
 
+=======
+    attack: function(name) {
+        console.log(name + ' ' + 'Fight...');
+    },
+    changeHP: changeHP,
+    elHP: elHP,
+    renderHP: renderHP,
+}
+>>>>>>> Stashed changes
 const player2 = {
     name: 'Scorpion',
     hp: 100,
     img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
+<<<<<<< Updated upstream
     weapon: ['bazuka', 'fireball', 'nunchucks'],
     attack: function () {
         console.log(player2.name + ' '+ 'fight...')
+=======
+    attack: function(name) {
+        console.log(name + ' ' + 'Fight...');
+    },
+    changeHP: changeHP,
+    elHP: elHP,
+    renderHP: renderHP,
+}
+
+function createElement(tag, className) {
+    const $tag = document.createElement(tag);
+    if (className) {
+        $tag.classList.add(className);
+>>>>>>> Stashed changes
     }
 };
 
@@ -28,6 +53,7 @@ function createPlayer(playerClass, playerName, playerHp, playerModel) {
     const $progressbar = document.createElement('div');
     $progressbar.classList.add('progressbar');
 
+<<<<<<< Updated upstream
     const $character = document.createElement('div');
     $character.classList.add('character');
 
@@ -49,6 +75,34 @@ function createPlayer(playerClass, playerName, playerHp, playerModel) {
     $progressbar.appendChild($name);
     $character.appendChild($img);
 };
+=======
+function getRandom(num) {
+    return Math.ceil(Math.random() * num);
+}
+
+function changeHP(getRandom) {
+    this.hp -= getRandom(20);
+ 
+    if (player.hp <= 0) {
+        player.hp = 0;
+    }
+
+    return player.hp;
+}
+
+function elHP() {
+    return document.querySelector('.player' + this.player + ' .life');
+}
+
+function renderHP() {
+    elHP().style.width = this.hp + '%';
+}
+
+
+$randomButton.addEventListener('click', function() {
+    changeHP(player1);
+    changeHP(player2);
+>>>>>>> Stashed changes
 
 const $arenas = document.querySelector('.arenas')
     $arenas.appendChild($player1)
