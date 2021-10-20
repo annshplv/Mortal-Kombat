@@ -6,25 +6,17 @@ const player1 = {
     name: 'Kitana',
     hp: 100,
     img: 'http://reactmarathon-api.herokuapp.com/assets/kitana.gif',
-<<<<<<< HEAD
     elHP,
     changeHP,
     renderHP,
     attack: attack,
 }
 
-=======
-    attack: function(name) {
-        console.log(name + ' ' + 'Fight...');
-    },
-}
->>>>>>> main
 const player2 = {
     player: 2,
     name: 'Scorpion',
     hp: 100,
     img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
-<<<<<<< HEAD
     elHP,
     changeHP,
     renderHP,
@@ -124,77 +116,6 @@ $randomButton.addEventListener('click', function() {
     if (player1.hp === 0 || player2.hp === 0) {
         $randomButton.disabled = true;
         createLoadButton();
-=======
-    attack: function(name) {
-        console.log(name + ' ' + 'Fight...');
-    },
-}
-
-function createElement(tag, className) {
-    const $tag = document.createElement(tag);
-    if (className) {
-        $tag.classList.add(className);
-    }
-
-    return $tag;
-}
-
-function createPlayer(playerObj) {
-    const $player = createElement('div', 'player'+playerObj.player);
-    const $progressbar = createElement('div', 'progressbar');;
-    const $character = createElement('div', 'character');
-    const $life = createElement('div', 'life');
-    const $name = createElement('div', 'name');
-    const $img = createElement('img');
-
-    $life.style.width = playerObj.hp +'%';
-    $name.innerText = playerObj.name;
-    $img.src = playerObj.img;
-
-    $player.appendChild($progressbar);
-    $player.appendChild($character);
-
-    $progressbar.appendChild($life);
-    $progressbar.appendChild($name);
-
-    $character.appendChild($img);
-
-    return $player;
-};
-
-function changeHP(player) {
-    const $playerLife = document.querySelector('.player'+ player.player +' .life');
-    player.hp -= getRandom(20);
- 
-    if (player.hp <= 0) {
-        player.hp = 0;
-    }
-
-    $playerLife.style.width = player.hp + '%';
-}
-
-function playerWins(name) {
-    const $loseTitle = createElement('div', 'loseTitle');
-    if (name) {
-        $loseTitle.innerText = name + ' wins';
-    } else {
-        $loseTitle.innerText = 'DRAW';
-    }
-
-    return $loseTitle;
-}
-
-function getRandom(num) {
-    return Math.ceil(Math.random() * num)
-}
-
-$randomButton.addEventListener('click', function() {
-    changeHP(player1);
-    changeHP(player2);
-
-    if (player1.hp === 0 || player2.hp === 0) {
-        $randomButton.disabled = true;
->>>>>>> main
     }
 
     if (player1.hp === 0 && player1.hp < player2.hp) {
