@@ -6,18 +6,25 @@ const player1 = {
     name: 'Kitana',
     hp: 100,
     img: 'http://reactmarathon-api.herokuapp.com/assets/kitana.gif',
-    attack: function(name) {
-        console.log(name + ' ' + 'Fight...');
-    },
+    elHP,
+    changeHP,
+    renderHP,
+    attack: attack,
 }
+
 const player2 = {
     player: 2,
     name: 'Scorpion',
     hp: 100,
     img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
-    attack: function(name) {
-        console.log(name + ' ' + 'Fight...');
-    },
+    elHP,
+    changeHP,
+    renderHP,
+    attack: attack,
+}
+
+function attack() {
+    console.log(this.name + ' ' + 'Fight...');
 }
 
 function createElement(tag, className) {
@@ -52,15 +59,23 @@ function createPlayer(playerObj) {
     return $player;
 };
 
-function changeHP(player) {
-    const $playerLife = document.querySelector('.player'+ player.player +' .life');
-    player.hp -= getRandom(20);
+function elHP() {
+    return document.querySelector('.player'+this.player+' .life');
+}
+
+function changeHP(randomNumber) {
+    // const $playerLife = document.querySelector('.player'+ player.player +' .life');
+    this.hp -= randomNumber;
  
-    if (player.hp <= 0) {
-        player.hp = 0;
+    if (this.hp <= 0) {
+        this.hp = 0;
     }
 
-    $playerLife.style.width = player.hp + '%';
+    // $playerLife.style.width = player.hp + '%';
+}
+
+function renderHP() {
+    this.elHP().style.width = this.hp + '%';
 }
 
 function playerWins(name) {
@@ -78,12 +93,29 @@ function getRandom(num) {
     return Math.ceil(Math.random() * num)
 }
 
+function createLoadButton() {
+    const $reloadButtonDiv = createElement('div', 'reloadWrap');
+    const $reloadButton = createElement('button', 'button');
+    $reloadButton.innerText = 'Reload';
+
+    $reloadButton.addEventListener('click', function() {
+        window.location.reload();
+    })
+
+    $reloadButtonDiv.appendChild($reloadButton);
+    $arenas.appendChild($reloadButtonDiv);
+};
+
 $randomButton.addEventListener('click', function() {
-    changeHP(player1);
-    changeHP(player2);
+    player1.changeHP(getRandom(20));
+    player1.changeHP();
+
+    player2.changeHP(getRandom(20));
+    player2.changeHP();
 
     if (player1.hp === 0 || player2.hp === 0) {
         $randomButton.disabled = true;
+        createLoadButton();
     }
 
     if (player1.hp === 0 && player1.hp < player2.hp) {
