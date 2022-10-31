@@ -53,9 +53,9 @@ const logs = {
 
 const player1 = {
     player: 1,
-    name: 'Kitana',
+    name: 'Sonya',
     hp: 100,
-    img: 'http://reactmarathon-api.herokuapp.com/assets/kitana.gif',
+    img: 'https://tenor.com/view/sonya-gif-21146101',
     elHP,
     changeHP,
     renderHP,
@@ -66,7 +66,7 @@ const player2 = {
     player: 2,
     name: 'Scorpion',
     hp: 100,
-    img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
+    img: 'https://tenor.com/bqCAK.gif',
     elHP,
     changeHP,
     renderHP,
