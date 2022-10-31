@@ -55,7 +55,7 @@ const player1 = {
     player: 1,
     name: 'Sonya',
     hp: 100,
-    img: 'https://tenor.com/view/sonya-gif-21146101',
+    img: 'https://media.tenor.com/M3nAKHQAamcAAAAi/sonya.gif',
     elHP,
     changeHP,
     renderHP,
@@ -66,7 +66,7 @@ const player2 = {
     player: 2,
     name: 'Scorpion',
     hp: 100,
-    img: 'https://tenor.com/bqCAK.gif',
+    img: 'https://media.tenor.com/Z_2X2fqvBOQAAAAi/mortal-kombat-mk.gif',
     elHP,
     changeHP,
     renderHP,
@@ -157,27 +157,6 @@ function createLoadButton() {
     $reloadButtonDiv.appendChild($reloadButton);
     $arenas.appendChild($reloadButtonDiv);
 };
-
-// $randomButton.addEventListener('click', function() {
-//     player1.changeHP(getRandom(20));
-//     player1.renderHP();
-
-//     player2.changeHP(getRandom(20));
-//     player2.renderHP();
-
-//     if (player1.hp === 0 || player2.hp === 0) {
-//         $randomButton.disabled = true;
-//         createLoadButton();
-//     }
-
-//     if (player1.hp === 0 && player1.hp < player2.hp) {
-//         $arenas.appendChild(playerWins(player2.name));
-//     } else if (player2.hp === 0 && player2.hp < player1.hp) {
-//         $arenas.appendChild(playerWins(player1.name));
-//     } else if (player1.hp === 0 && player2.hp === 0) {
-//         $arenas.appendChild(playerWins());
-//     }
-// })
 
 $arenas.appendChild(createPlayer(player1));
 $arenas.appendChild(createPlayer(player2));
